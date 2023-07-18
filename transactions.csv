@@ -1,0 +1,3 @@
+Account Number,Post Date,Check,Description,Debit,Credit,Status,Balance
+"XXX456-7890",6/21/2023,,"Test expense",123.00,,Posted,1420.21
+"XXX456-7890",6/20/2023,,"Test deposit",,543.21,Posted,1543.21
