@@ -44,7 +44,7 @@ class EveryDollarAPI:
         Initializes the selenium driver
         """
         opts = Options()
-        opts.headless = True
+        opts.add_argument("-headless")
         # opts.binary_location = "/usr/bin/firefox-esr"
         self.driver = webdriver.Firefox(options=opts)
 
