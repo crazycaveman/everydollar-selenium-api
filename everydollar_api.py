@@ -9,14 +9,12 @@ Credits: This is possible thanks to the developers of selenium and selenium-pyth
 """
 
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
-from selenium.common.exceptions import NoSuchElementException
-from time import time, sleep
+from time import sleep
 from datetime import datetime
 
 class EveryDollarAPI:
@@ -29,7 +27,6 @@ class EveryDollarAPI:
     LOGIN_BTN_XPATH = "//button[.='Sign In']"
     EXPECTED_TITLE_CONTENTS = "Ramsey Account - Sign In"
     ADD_TRANSACTION_MENU_BTN_XPATH = "//button[@data-testid='OperationsPanelTriggerTransactions']"
-    ADD_TRANSACTION_BTN_CLASS = "AddTransactionLink-module__AddTransactionLink--f_qUlBKnZh35SSsz"
     ADD_TRANSACTION_BTN_XPATH = "//a[@title='Add Transaction']"
     ADD_NEW_BTN_ID = "TransactionDrawer_addNew"
     AMOUNT_INPUT_CLASS = "TransactionForm-amountInput"
@@ -56,7 +53,7 @@ class EveryDollarAPI:
 
     def _wait_for_load(self, by, val):
         """
-        Waits for the given xpath element to be loaded
+        Waits for the given element to be loaded
         """
         try:
             element_present = EC.presence_of_element_located((by, val))
