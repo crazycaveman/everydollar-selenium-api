@@ -4,14 +4,11 @@ Load CSV file(s) and add transactions to EveryDollar
 
 from everydollar_api import EveryDollarAPI
 from datetime import datetime
-import csv
-import sys
-import time
+import csv, sys
 
 try:
     from creds import username, password
 except ImportError:
-    import sys
     print("Please create a creds.py file with the variables username and password defined with your everydollar credentials")
     print("")
     print("example creds.py: ")
@@ -54,7 +51,6 @@ for file in filenames:
                     "Desc": row[HEADERS['desc']]
                    }
             api.add_transaction(info["Date"], info["Desc"], abs(info["Amt"]), "expense" if info["Amt"] < 0 else "income")
-            time.sleep(1.0)
             TxCount += 1
         
         totalTx += TxCount
